@@ -1,1 +1,12 @@
-Scala machine learning examples
+Some hacking around with machine learning in Scala. I'm trying to learn me
+some Scala, and at the same time try to understand some of the machine
+learning concepts a bit better. So I'm working through the examples from
+Machine Learning in Action (http://www.manning.com/pharrington/) and making
+Scala versions to play with. The book is available on Safari if you already
+have a subscription (http://my.safaribooksonline.com/).
+
+The examples build on top of breeze (https://github.com/scalanlp/breeze), but
+I'm fairly sure I'm not really using that library the way it's really intended
+to be used. So for now at least these aren't great samples for that case.
+
+This also isn't really meant to be used as a library, just a set of examples.
