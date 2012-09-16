@@ -1,20 +1,8 @@
-import AssemblyKeys._ // put this at the top of the file
-
-seq(assemblySettings: _*)
-
-seq(ScctPlugin.instrumentSettings : _*)
-
-test in assembly := {}
-
-mainClass in assembly := Some("com.rowehl.mlia.KNN")
-
-name := "scala_ml"
+name := "scala_mlia"
 
 version := "1.0"
 
 libraryDependencies += "org.scalatest" %% "scalatest" % "2.0.M1" % "test"
-
-libraryDependencies += "com.fasterxml.jackson.core" % "jackson-databind" % "2.0.1" // JSON
 
 libraryDependencies  ++= Seq(
             // other dependencies here
