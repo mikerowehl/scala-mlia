@@ -56,4 +56,13 @@ object KNN {
     val res = votes.toList.sortBy(_._2).last
     res._1
   }
+
+  /**
+   * This is the normalization function from listing 2.3, which takes in a set
+   * of data and returns a normalized form using the range 0 to 1, the ranges
+   * for the different samples, and the minimum values for each.
+   */
+  def autoNorm(data: DenseMatrix[Double]): String = {
+    "TODO: Haven't gotten to this one yet"
+  }
 }
