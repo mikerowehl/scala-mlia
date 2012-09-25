@@ -4,31 +4,28 @@ import breeze.linalg._
 
 class DecisionTreeTest extends FunSuite {
   test("Count strings in a list") {
-    val res = countElements(Map[String,Int](), List("one", "two", "one", "two", "three"))
+    val res = labelCounts(List("one", "two", "one", "two", "three"))
     assert(res("one") == 2)
     assert(res("two") == 2)
     assert(res("three") == 1)
   }
 
-  test("Count strings in list of lists") {
-    val l1 = List("one", "two", "three", "four")
-    val l2 = List("two", "four", "five")
-    val res = labelCounts(List(l1, l2))
-    assert(res("one") == 1)
-    assert(res("two") == 2)
-    assert(res("three") == 1)
-    assert(res("four") == 2)
-    assert(res("five") == 1)
-  }
+  def fuzzyCheck(d:Double, e:Double):Boolean = scala.math.abs(e-d) < 0.01
 
   test("Check Shannon entropy simple values") {
     // One bit of information == 1.0
-    val o = List(List("0"), List("1"))
+    val o = List("0", "1")
     val s = shannonEntropy(o)
-    assert(scala.math.abs(1.0-s) < 0.01)
+    assert(fuzzyCheck(s, 1.0))
+
     // Two bits of information == 2.0
-    val t = List(List("0"), List("1"), List("2"), List("3"))
+    val t = List("0", "1", "2", "3")
     val s2 = shannonEntropy(t)
-    assert(scala.math.abs(2.0-s2) < 0.01)
+    assert(fuzzyCheck(s2, 2.0))
+
+    // One bit of information == 1.0, repeated symbols are meaningless
+    val oo = List("0", "1", "0", "1")
+    val ss = shannonEntropy(o)
+    assert(fuzzyCheck(ss, 1.0))
   }
 }
