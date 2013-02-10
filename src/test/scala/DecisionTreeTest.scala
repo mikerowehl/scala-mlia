@@ -28,4 +28,10 @@ class DecisionTreeTest extends FunSuite {
     val ss = shannonEntropy(o)
     assert(fuzzyCheck(ss, 1.0))
   }
+
+  test("Check splitDataSet filters rows") {
+    val m = DenseMatrix((1.0, 2.0, 3.0), (2.0,3.0,4.0), (0.0,2.0,100.0))
+    val f = splitDataSet(m, 1, 2.0)
+    assert(f.rows == 2)
+  }
 }
